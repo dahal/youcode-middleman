@@ -38,6 +38,8 @@ page "/faq.html", :layout => "layout"
 # Reload the browser automatically whenever files change
 activate :livereload
 
+activate :directory_indexes
+
 # Methods defined in the helpers block are available in templates
 # helpers do
 #   def some_helper
@@ -52,13 +54,7 @@ set :js_dir, 'javascripts'
 
 set :images_dir, 'images'
 
-activate :deploy do |deploy|
-  deploy.method = :git
-  # Optional Settings
-  # deploy.remote   = "custom-remote" # remote name or git url, default: origin
-  # deploy.branch   = "custom-branch" # default: gh-pages
-  # deploy.strategy = :submodule      # commit strategy: can be :force_push or :submodule, default: :force_push
-end
+set :build_dir, "tmp"
 
 # Build-specific configuration
 configure :build do
@@ -79,3 +75,6 @@ configure :build do
   # Or use a different image path
   # set :http_prefix, "/Content/images/"
 end
+
+
+
